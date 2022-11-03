@@ -37,7 +37,7 @@ def register():
 
     return render_template('auth/register.html')
 
-@bp.route('/login', methods=('GETE', 'POST'))
+@bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -73,10 +73,10 @@ def load_logged_in_user():
             'SELECT * FROM user WHERE id = ?', (user_id)
         ).fetchone()
 
-    @bp.route('/logout')
-    def logout():
-        session.clear()
-        return redirect(url_for('index'))
+@bp.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
 
 def login_required(view):
     @functools.wraps(view)
