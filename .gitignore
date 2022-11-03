@@ -1,2 +1,6 @@
 # sqlit3
 instance/
+
+# server pycache
+*.pyc
+__pycache__/
