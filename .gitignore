@@ -4,3 +4,13 @@ instance/
 # server pycache
 *.pyc
 __pycache__/
+
+# installed project package
+dist/
+build/
+*.egg-info/
+
+# testing
+.pytest_chache
+.coverage
+htmlcov/
