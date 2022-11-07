@@ -27,7 +27,7 @@ def create():
         error = None
 
         if not title:
-            error = 'Title is requored.'
+            error = 'Title is required.'
 
         if error is not None:
             flash(error)
@@ -83,7 +83,7 @@ def update(id):
             )
             db.commit()
             return redirect(url_for('blog.index'))
-    
+
     return render_template('blog/update.html', post=post)
 
 @bp.route('/<int:id>/delete', methods=('POST',))
