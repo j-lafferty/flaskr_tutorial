@@ -15,7 +15,7 @@ def test_get_close_db(app):
     
 def test_init_db_command(runner, monkeypatch):
     class Recorder(object):
-        called False
+        called = False
 
     def fake_init_db():
         Recorder.called = True
@@ -25,4 +25,3 @@ def test_init_db_command(runner, monkeypatch):
     assert 'Initialized' in result.output
     assert Recorder.called
 
-    
