@@ -9,7 +9,7 @@ def test_register(client, app):
     )
     assert response.headers["Location"] == "/auth/login"
 
-    with app.app_content():
+    with app.app_context():
         assert get_db().execute(
             "SELECT * FROM user WHERE username = 'a'",
         ).fetchone() is not None
@@ -50,4 +50,3 @@ def test_logout(client, auth):
     with client:
         auth.logout()
         assert 'user_id' not in session
-        
