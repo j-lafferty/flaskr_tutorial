@@ -21,7 +21,7 @@ def app():
         init_db()
         get_db().executescript(_data_sql)
 
-    yeild app
+    yield app
 
     os.close(db_fd)
     os.unlink(db_path)
@@ -50,4 +50,3 @@ class AuthActions(object):
 @pytest.fixture
 def auth(client):
     return AuthActions(client)
-    
